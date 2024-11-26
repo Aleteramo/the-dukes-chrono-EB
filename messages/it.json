@@ -88,7 +88,8 @@
   "NotFound": {
     "title": "Pagina Non Trovata",
     "description": "La pagina che stai cercando non esiste o è stata spostata.",
-    "action": "Torna alla Home"
+    "action": "Torna alla Home",
+    "backHome": "Torna alla Home"
   },
   "Contact": {
     "title": "Contattaci",

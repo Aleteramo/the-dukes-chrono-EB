@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 const watches = [
   {
@@ -20,8 +20,13 @@ const watches = [
   }
 ];
 
-export default function CatalogoPage() {
-  const t = useTranslations('Catalogo');
+type Props = {
+  params: { locale: string }
+};
+
+export default async function CatalogoPage({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
+  const t = await getTranslations('Collection');
 
   return (
     <div className="container mx-auto px-4 pt-24 pb-8">
