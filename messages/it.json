@@ -1,0 +1,119 @@
+{
+  "HomePage": {
+    "title": "The Duke's Chrono",
+    "subtitle": "Collezione esclusiva di orologi vintage di prestigio"
+  },
+  "Navigation": {
+    "home": "Home",
+    "catalog": "Catalogo",
+    "about": "Chi Siamo",
+    "contact": "Contatti",
+    "services": "Servizi"
+  },
+  "Footer": {
+    "contact": "Contattaci",
+    "quickLinks": "Link Rapidi",
+    "about": "Chi Siamo",
+    "services": "Servizi",
+    "privacy": "Privacy",
+    "followUs": "Seguici",
+    "copyright": " 2023 The Duke's Chrono. Tutti i diritti riservati."
+  },
+  "Collection": {
+    "title": "Catalogo",
+    "description": "Scopri la nostra selezione di orologi vintage di prestigio, ognuno con la sua storia unica.",
+    "viewAll": "Vedi tutti"
+  },
+  "SoldPieces": {
+    "title": "Orologi Venduti di Recente",
+    "description": "Una selezione dei nostri orologi venduti di recente, che rappresentano la qualità e la rarità eccezionale che offriamo.",
+    "soldOn": "Venduto il"
+  },
+  "About": {
+    "title": "La Nostra Storia",
+    "heritage": {
+      "title": "Il Nostro Heritage",
+      "description": "Dal 1985, The Duke's Chrono rappresenta l'eccellenza nel mondo degli orologi vintage di prestigio. La nostra passione per la precisione e l'autenticità ci ha reso un punto di riferimento per i collezionisti più esigenti."
+    },
+    "expertise": {
+      "title": "La Nostra Expertise",
+      "description": "Ogni orologio nella nostra collezione viene selezionato personalmente e sottoposto a un rigoroso processo di autenticazione. La nostra esperienza garantisce solo pezzi di straordinaria qualità e provenienza certificata."
+    },
+    "values": {
+      "1": {
+        "title": "Autenticità",
+        "description": "Garantiamo l'originalità e la provenienza di ogni pezzo nella nostra collezione."
+      },
+      "2": {
+        "title": "Eccellenza",
+        "description": "Selezioniamo solo gli orologi più prestigiosi e meglio conservati."
+      },
+      "3": {
+        "title": "Fiducia",
+        "description": "Costruiamo relazioni durature basate sulla trasparenza e professionalità."
+      }
+    }
+  },
+  "Services": {
+    "title": "I Nostri Servizi",
+    "subtitle": "Servizi esclusivi per il vostro orologio di prestigio",
+    "services": {
+      "1": {
+        "title": "Autenticazione e Valutazione",
+        "description": "Servizio professionale di autenticazione e valutazione del vostro orologio di prestigio.",
+        "timeframe": "Durata: 2-3 giorni"
+      },
+      "2": {
+        "title": "Restauro e Manutenzione",
+        "description": "Restauro completo e manutenzione specializzata per orologi vintage di alto valore.",
+        "timeframe": "Durata: 2-4 settimane"
+      },
+      "3": {
+        "title": "Consulenza all'Acquisto",
+        "description": "Servizio di consulenza personalizzata per l'acquisto di orologi da collezione.",
+        "timeframe": "Su appuntamento"
+      },
+      "4": {
+        "title": "Certificazione",
+        "description": "Rilascio di certificati di autenticità e documenti di provenienza.",
+        "timeframe": "Durata: 1 settimana"
+      }
+    },
+    "cta": {
+      "title": "Prenota una Consulenza",
+      "description": "Scopri come possiamo prenderci cura del tuo orologio di prestigio",
+      "button": "Contattaci"
+    }
+  },
+  "Contact": {
+    "title": "Contattaci",
+    "subtitle": "Siamo qui per rispondere a tutte le tue domande",
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "Inserisci il tuo nome",
+      "email": "Email",
+      "emailPlaceholder": "Inserisci la tua email",
+      "message": "Messaggio",
+      "messagePlaceholder": "Come possiamo aiutarti?",
+      "submit": "Invia Messaggio"
+    },
+    "info": {
+      "location": {
+        "title": "Dove Siamo"
+      },
+      "contact": {
+        "title": "Contatti"
+      },
+      "hours": {
+        "title": "Orari di Apertura",
+        "weekdays": "Lun - Ven: 10:00 - 19:00",
+        "weekend": "Sab: 10:00 - 17:00"
+      }
+    },
+    "success": {
+      "title": "Messaggio Inviato",
+      "message": "Grazie per averci contattato. Ti risponderemo al più presto.",
+      "close": "Chiudi"
+    }
+  }
+}
