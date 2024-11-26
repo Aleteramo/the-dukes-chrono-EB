@@ -72,7 +72,7 @@ const WatchCard = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative pt-8 md:pt-16">
       <audio ref={audioRef} preload="auto">
         <source src="/sounds/tick-tock.wav" type="audio/wav" />
       </audio>
@@ -120,7 +120,7 @@ const WatchCard = () => {
       />
 
       <motion.div
-        className="relative w-[300px] md:w-[400px] h-[375px] md:h-[500px] cursor-pointer select-none"
+        className="relative w-[300px] md:w-[400px] h-[375px] md:h-[500px] mx-auto cursor-pointer select-none"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         style={{ perspective: '1500px' }}
@@ -194,7 +194,7 @@ const WatchCard = () => {
 
             {/* Logo Container con effetto fluttuante */}
             <motion.div
-              className="relative z-10 mt-8 md:mt-12"
+              className="relative z-10 mt-16 md:mt-24"
               style={{ transform: 'translateZ(45px)' }}
               animate={{
                 scale: isHovered ? [1, 1.2, 0] : 1,
