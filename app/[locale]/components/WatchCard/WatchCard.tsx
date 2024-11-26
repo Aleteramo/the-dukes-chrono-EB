@@ -120,10 +120,10 @@ const WatchCard = () => {
       />
 
       <motion.div
-        className="relative w-[400px] h-[500px] cursor-pointer select-none"
+        className="relative w-[300px] md:w-[400px] h-[375px] md:h-[500px] cursor-pointer select-none"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        style={{ perspective: '2000px' }}
+        style={{ perspective: '1500px' }}
       >
         <motion.div
           className="relative w-full h-full"
@@ -146,7 +146,7 @@ const WatchCard = () => {
             }}
           >
             {/* Strati di profondità del quadrante */}
-            {[40, 30, 20, 10, 0].map((depth, index) => (
+            {[30, 22, 15, 8, 0].map((depth, index) => (
               <motion.div
                 key={depth}
                 className="absolute inset-0 rounded-full"
@@ -154,7 +154,8 @@ const WatchCard = () => {
                   ...luxuryWatchEffect,
                   transform: `translateZ(${depth}px)`,
                   opacity: 1 - (index * 0.15),
-                  border: index === 0 ? '2px solid rgba(255, 215, 0, 0.3)' : 'none'
+                  border: index === 0 ? '2px solid rgba(255, 215, 0, 0.3)' : 'none',
+                  boxShadow: `0 ${depth/2}px ${depth}px rgba(0,0,0,0.2)`
                 }}
               />
             ))}
@@ -164,8 +165,9 @@ const WatchCard = () => {
               className="absolute inset-0 rounded-full overflow-hidden"
               style={{
                 background: 'linear-gradient(135deg, rgba(0,0,0,0.9), rgba(30,30,30,0.95))',
-                transform: 'translateZ(45px)',
+                transform: 'translateZ(35px)',
                 border: '3px solid rgba(218, 165, 32, 0.5)',
+                boxShadow: 'inset 0 0 30px rgba(0,0,0,0.5), 0 5px 15px rgba(0,0,0,0.3)'
               }}
             >
               {/* Indici delle ore */}
@@ -193,7 +195,7 @@ const WatchCard = () => {
             {/* Logo Container con effetto fluttuante */}
             <motion.div
               className="relative z-10"
-              style={{ transform: 'translateZ(60px)' }}
+              style={{ transform: 'translateZ(45px)' }}
               animate={{
                 scale: isHovered ? [1, 1.2, 0] : 1,
                 opacity: isHovered ? [1, 1, 0] : 1,
@@ -212,7 +214,7 @@ const WatchCard = () => {
                 }}
               >
                 <motion.h1 
-                  className="text-5xl font-serif tracking-wider"
+                  className="text-4xl md:text-5xl font-serif tracking-wider"
                   style={{
                     color: '#DAA520',
                     background: `linear-gradient(
@@ -232,7 +234,7 @@ const WatchCard = () => {
                 
                 {/* Sottotitolo "THE DUKE'S CHRONO" */}
                 <motion.div 
-                  className="text-sm tracking-[0.3em] mt-2"
+                  className="text-xs md:text-sm tracking-[0.3em] mt-2"
                   style={{
                     color: '#DAA520',
                     fontFamily: "'Cinzel', 'Trajan Pro', 'Times New Roman', serif",
