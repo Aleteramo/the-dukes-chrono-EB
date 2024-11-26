@@ -194,7 +194,7 @@ const WatchCard = () => {
 
             {/* Logo Container con effetto fluttuante */}
             <motion.div
-              className="relative z-10"
+              className="relative z-10 mt-8 md:mt-12"
               style={{ transform: 'translateZ(45px)' }}
               animate={{
                 scale: isHovered ? [1, 1.2, 0] : 1,
