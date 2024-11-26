@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { motion } from 'framer-motion';
 import Collection from '../components/Collection/Collection';
 
@@ -12,7 +12,12 @@ export async function generateMetadata({ params: { locale } }: { params: { local
   };
 }
 
-export default async function Catalog() {
+type Props = {
+  params: { locale: string }
+};
+
+export default async function Catalog({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations('Collection');
 
   return (

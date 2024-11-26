@@ -1,10 +1,16 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
+import { unstable_setRequestLocale } from 'next-intl/server';
 import WatchCard from './components/WatchCard/WatchCard';
 import Collection from './components/Collection/Collection';
 import SoldPieces from './components/SoldPieces/SoldPieces';
 
-export default function Home() {
+type Props = {
+  params: { locale: string }
+};
+
+export default function Home({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
   const t = useTranslations('HomePage');
 
   return (

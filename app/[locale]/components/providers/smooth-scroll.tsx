@@ -1,6 +1,7 @@
 // src/components/providers/smooth-scroll.tsx
 'use client';
 
+
 import { useEffect, type ReactNode } from 'react';
 
 interface SmoothScrollProps {

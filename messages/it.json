@@ -85,6 +85,11 @@
       "button": "Contattaci"
     }
   },
+  "NotFound": {
+    "title": "Pagina Non Trovata",
+    "description": "La pagina che stai cercando non esiste o è stata spostata.",
+    "action": "Torna alla Home"
+  },
   "Contact": {
     "title": "Contattaci",
     "subtitle": "Siamo qui per rispondere a tutte le tue domande",
