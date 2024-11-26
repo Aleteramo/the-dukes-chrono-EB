@@ -74,7 +74,7 @@ const WatchCard = () => {
   return (
     <div className="relative pt-8 md:pt-16">
       <audio ref={audioRef} preload="auto">
-        <source src="/sounds/tick-tock.wav" type="audio/wav" />
+        <source src="/sounds/tictoc.mp3" type="audio/mp3" />
       </audio>
       
       <motion.div 
