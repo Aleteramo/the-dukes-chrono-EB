@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 
 const WatchCard = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -10,6 +11,10 @@ const WatchCard = () => {
   const controls = useAnimation();
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isFlipping, setIsFlipping] = useState(false);
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: false
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,6 +22,28 @@ const WatchCard = () => {
     }, 50);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        transition: {
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+          duration: 0.8
+        }
+      });
+    } else {
+      controls.start({
+        y: 50,
+        opacity: 0,
+        scale: 0.9
+      });
+    }
+  }, [inView, controls]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -72,7 +99,7 @@ const WatchCard = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative min-h-[100dvh] md:min-h-0 flex items-center justify-center py-12 md:py-24" ref={ref}>
       <audio ref={audioRef} preload="auto">
         <source src="/sounds/tick-tock.wav" type="audio/wav" />
       </audio>
@@ -103,27 +130,15 @@ const WatchCard = () => {
       />
       
       <motion.div
-        className="absolute top-[20%] left-1/2 origin-bottom w-1 h-[110px] bg-gradient-to-b from-[#FFD700] to-[#DAA520]"
-        style={{
-          transformOrigin: '50% 0%',
-          boxShadow: '0 0 10px rgba(255, 215, 0, 0.3)',
-          zIndex: 98
-        }}
-        animate={{
-          opacity: isHovered ? 0 : 1,
-          rotate: rotation * 0.5
-        }}
-        transition={{ 
-          opacity: { duration: 0.3 },
-          rotate: { duration: 0.05, ease: "linear" }
-        }}
-      />
-
-      <motion.div
+        animate={controls}
+        initial={{ y: 50, opacity: 0, scale: 0.9 }}
         className="relative w-[300px] md:w-[400px] h-[375px] md:h-[500px] cursor-pointer select-none"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        style={{ perspective: '1500px' }}
+        style={{ 
+          perspective: '1500px',
+          filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.2))'
+        }}
       >
         <motion.div
           className="relative w-full h-full"
