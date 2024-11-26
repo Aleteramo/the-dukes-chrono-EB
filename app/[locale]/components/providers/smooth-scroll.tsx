@@ -6,38 +6,14 @@ interface SmoothScrollProps {
   children: ReactNode
 }
 
-type LenisType = {
-  destroy: () => void
-  raf: (time: number) => void
-}
-
 export default function SmoothScroll({ children }: SmoothScrollProps) {
   useEffect(() => {
-    let lenis: LenisType | null = null
-
-    const initLenis = async () => {
-      try {
-        const lenisModule = await import('@studio-freight/lenis')
-        const Lenis = lenisModule.default
-        lenis = new Lenis()
-
-        function raf(time: number) {
-          lenis?.raf(time)
-          requestAnimationFrame(raf)
-        }
-
-        requestAnimationFrame(raf)
-      } catch (error) {
-        console.error('Error initializing Lenis:', error)
-      }
-    }
-
-    initLenis()
+    // Add smooth scroll behavior to html element
+    document.documentElement.style.scrollBehavior = 'smooth'
 
     return () => {
-      if (lenis) {
-        lenis.destroy()
-      }
+      // Reset scroll behavior on cleanup
+      document.documentElement.style.scrollBehavior = 'auto'
     }
   }, [])
 
