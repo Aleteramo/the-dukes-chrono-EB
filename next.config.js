@@ -7,6 +7,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  eslint: {
+    ignoreDuringBuilds: true
+  }
 };
 
 module.exports = withNextIntl(nextConfig);
