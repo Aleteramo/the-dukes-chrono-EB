@@ -1,26 +1,27 @@
 // src/components/providers/smooth-scroll.tsx
-'use client'
+'use client';
 
-import { useEffect, type ReactNode } from 'react'
+import { useEffect, type ReactNode } from 'react';
 
 interface SmoothScrollProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
-export default function SmoothScroll({ children }: SmoothScrollProps) {
+const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
   useEffect(() => {
-    // Add smooth scroll behavior to html element
     if (typeof window !== 'undefined') {
-      document.documentElement.style.scrollBehavior = 'smooth'
-    }
+      const htmlElement = document.documentElement;
+      const originalScrollBehavior = htmlElement.style.scrollBehavior; // Store original value
 
-    return () => {
-      // Reset scroll behavior on cleanup
-      if (typeof window !== 'undefined') {
-        document.documentElement.style.scrollBehavior = 'auto'
-      }
-    }
-  }, [])
+      htmlElement.style.scrollBehavior = 'smooth';
 
-  return <>{children}</>
-}
+      return () => {
+        htmlElement.style.scrollBehavior = originalScrollBehavior; // Restore original value
+      };
+    }
+  }, []);
+
+  return <>{children}</>;
+};
+
+export default SmoothScroll;
