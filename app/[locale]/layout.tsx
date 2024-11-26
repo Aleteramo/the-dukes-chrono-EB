@@ -5,6 +5,7 @@ import { getMessages, unstable_setRequestLocale } from 'next-intl/server'
 import '../globals.css'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
+import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -38,6 +39,7 @@ export default async function LocaleLayout({
               {children}
             </main>
             <Footer />
+            <WhatsAppButton />
           </div>
         </NextIntlClientProvider>
       </body>
