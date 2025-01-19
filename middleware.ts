@@ -1,34 +1,54 @@
-import createMiddleware from 'next-intl/middleware';
 import { NextRequest } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+import { withAuth } from 'next-auth/middleware';
 
 // Funzione per ottenere la lingua preferita dal browser
-function getPreferredLocale(request: NextRequest) {
+function getPreferredLocale(request: NextRequest): 'en' | 'it' {
   const acceptLanguage = request.headers.get('accept-language');
-  if (!acceptLanguage) return 'it';
+  
+  if (!acceptLanguage) return 'en';
 
-  // Cerca prima una corrispondenza esatta per it o en
-  if (acceptLanguage.includes('it')) return 'it';
-  if (acceptLanguage.includes('en')) return 'en';
+  const locales = acceptLanguage.split(',').map(lang => {
+    const [code, quality] = lang.trim().split(';');
+    const locale = code.split('-')[0];
+    const q = quality ? parseFloat(quality.split('=')[1]) : 1;
+    return { locale, q };
+  });
 
-  // Se non trova corrispondenze esatte, usa italiano come default
-  return 'it';
+  const sortedLocales = locales.sort((a, b) => b.q - a.q);
+  const supportedLocales = ['en', 'it'];
+  const matchedLocale = sortedLocales.find(({ locale }) => 
+    supportedLocales.includes(locale)
+  );
+
+  return matchedLocale ? matchedLocale.locale as 'en' | 'it' : 'en';
 }
 
 export default createMiddleware({
   locales: ['en', 'it'],
-  defaultLocale: 'it',
+  defaultLocale: 'en',
   localePrefix: 'always'
 });
 
-// Configure matcher to support all routes
+// Aggiorna il matcher per gestire tutti i percorsi necessari
 export const config = {
   matcher: [
-    // Match all pathnames except for
-    // - … if they start with `/api`, `/_next` or `/_vercel`
-    // - … the ones containing a dot (e.g. `favicon.ico`)
-    '/((?!api|_next|_vercel|.*\\..*).*)',
-    // However, match all pathnames within `/icons`, even if they
-    // contain a dot
-    '/icons/(.*)'
+    // Root path
+    '/',
+    
+    // Tutti i percorsi localizzati
+    '/(en|it)/:path*',
+    
+    // Percorsi protetti
+    '/(en|it)/admin/:path*',
+    '/admin/:path*',
+    '/(en|it)/login',
+    '/login',
+    
+    // API routes
+    '/api/watches/:path*',
+
+    // Escludi file statici e API
+    '/((?!api|_next|static|.*\\..*).*)'
   ]
 };

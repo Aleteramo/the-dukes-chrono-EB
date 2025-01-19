@@ -11,6 +11,14 @@ const config: Config = {
       colors: {
         gold: '#FFD700',
       },
+      fontFamily: {
+        'futura': ['Futura', 'sans-serif'],
+      },
+      fontWeight: {
+        'light': '300',
+        'book': '400',
+        'bold': '700'
+      }
     },
   },
   plugins: [],

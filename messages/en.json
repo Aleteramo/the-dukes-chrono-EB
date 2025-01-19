@@ -4,11 +4,40 @@
     "subtitle": "Exclusive collection of prestigious vintage watches"
   },
   "Navigation": {
-    "home": "Home",
-    "catalog": "Catalog",
+    "archive": "Archive",
     "about": "About",
-    "contact": "Contact",
-    "services": "Services"
+    "contact": "Contact"
+  },
+  "Products": {
+    "sold": "Sold",
+    "available": "Available",
+    "watches": {
+      "1": {
+        "name": "Rolex Daytona",
+        "description": "Automatic chronograph in steel, black dial with silver counters",
+        "price": "On request"
+      },
+      "2": {
+        "name": "Patek Philippe Calatrava",
+        "description": "Rose gold case, opaline dial, automatic movement",
+        "price": "On request"
+      },
+      "3": {
+        "name": "Audemars Piguet Royal Oak",
+        "description": "Steel case and bracelet, blue \"Grande Tapisserie\" dial",
+        "price": "On request"
+      },
+      "4": {
+        "name": "Cartier Santos",
+        "description": "Steel and yellow gold case, white dial, automatic movement",
+        "price": "Sold"
+      },
+      "5": {
+        "name": "Vacheron Constantin Overseas",
+        "description": "Steel chronograph, blue dial, integrated bracelet",
+        "price": "Sold"
+      }
+    }
   },
   "Footer": {
     "contact": "Contact Us",
@@ -24,9 +53,10 @@
     "description": "Explore our current collection of exceptional timepieces available for purchase."
   },
   "SoldPieces": {
-    "title": "Recently Sold Pieces",
-    "description": "A selection of our recently sold timepieces, representing the exceptional quality and rarity we offer.",
-    "soldOn": "Sold on"
+    "title": "Hall of Fame",
+    "description": "Each timepiece in this archive represents the pinnacle of vintage watchmaking and our dedication to preserving these timeless treasures.",
+    "soldOn": "Entered history on",
+    "noItemsFound": "Our archive is growing"
   },
   "About": {
     "title": "Our Story",
@@ -51,37 +81,6 @@
         "title": "Trust",
         "description": "We build lasting relationships based on transparency and professionalism."
       }
-    }
-  },
-  "Services": {
-    "title": "Our Services",
-    "subtitle": "Exclusive services for your prestigious timepiece",
-    "services": {
-      "1": {
-        "title": "Authentication & Appraisal",
-        "description": "Professional authentication and valuation service for your prestigious timepiece.",
-        "timeframe": "Duration: 2-3 days"
-      },
-      "2": {
-        "title": "Restoration & Maintenance",
-        "description": "Complete restoration and specialized maintenance for high-value vintage watches.",
-        "timeframe": "Duration: 2-4 weeks"
-      },
-      "3": {
-        "title": "Purchase Consultation",
-        "description": "Personalized consultation service for collecting watches.",
-        "timeframe": "By appointment"
-      },
-      "4": {
-        "title": "Certification",
-        "description": "Issuance of authenticity certificates and provenance documents.",
-        "timeframe": "Duration: 1 week"
-      }
-    },
-    "cta": {
-      "title": "Book a Consultation",
-      "description": "Discover how we can take care of your prestigious timepiece",
-      "button": "Contact Us"
     }
   },
   "Contact": {
@@ -114,6 +113,14 @@
       "message": "Thank you for contacting us. We'll get back to you soon.",
       "close": "Close"
     }
+  },
+  "ProductCard": {
+    "imageNotAvailable": "Image not available",
+    "nameNotAvailable": "Name not available",
+    "priceNotAvailable": "Price not available",
+    "noDescription": "No description provided.",
+    "sold": "Sold",
+    "available": "Available"
   },
   "NotFound": {
     "title": "Page Not Found",

@@ -1,11 +1,12 @@
+// Product interface definition
 export interface Product {
   id: string;
   name: string;
-  description: string;
-  price: string;
-  image: string;
-  status: 'available' | 'sold';
-  soldDate?: string; 
+  image?: string; // Optional image URL
+  description?: string; // Optional description
+  price?: number | string; // Optional price
+  status: 'available' | 'sold'; // Product availability status
+  soldDate?: string; // Optional ISO date string (e.g., '2023-11-15')
   details: {
     brand: string;
     model: string;
@@ -17,6 +18,24 @@ export interface Product {
   };
 }
 
+// Utility function to format dates consistently
+export const formatDate = (dateString?: string): string | undefined => {
+  if (!dateString) return undefined;
+
+  try {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('it-IT', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+    });
+  } catch (error) {
+    console.error('Date formatting error:', error);
+    return undefined;
+  }
+};
+
+// Array of products
 export const products: Product[] = [
   {
     id: '1',
@@ -33,7 +52,7 @@ export const products: Product[] = [
       movement: 'Automatic',
       case: 'Platinum',
       bracelet: 'Oysterflex',
-    }
+    },
   },
   {
     id: '2',
@@ -51,7 +70,7 @@ export const products: Product[] = [
       movement: 'Automatic',
       case: 'Stainless Steel',
       bracelet: 'Integrated Steel',
-    }
+    },
   },
   {
     id: '3',
@@ -69,10 +88,55 @@ export const products: Product[] = [
       movement: 'Automatic',
       case: 'Rose Gold',
       bracelet: 'Rose Gold',
-    }
+    },
   },
-  // Aggiungi altri orologi qui...
+  {
+    id: '4',
+    name: 'IWC Portuguese Perpetual Calendar',
+    description: 'Limited Edition in platinum',
+    price: '€85,000',
+    image: '/images/watches/iwc-portuguese.jpg',
+    status: 'sold',
+    soldDate: '2023-10-20',
+    details: {
+      brand: 'IWC',
+      model: 'Portuguese',
+      year: '2019',
+      condition: 'Excellent',
+      movement: 'Automatic',
+      case: 'Platinum',
+      bracelet: 'Alligator Leather',
+    },
+  },
+  {
+    id: '5',
+    name: 'Omega Speedmaster Moonwatch',
+    description: 'Professional Chronograph in stainless steel',
+    price: '€65,000',
+    image: '/images/watches/omega-speedmaster.jpg',
+    status: 'available',
+    details: {
+      brand: 'Omega',
+      model: 'Speedmaster',
+      year: '2022',
+      condition: 'Like New',
+      movement: 'Manual',
+      case: 'Stainless Steel',
+      bracelet: 'Steel Bracelet',
+    },
+  },
 ];
 
-export const getAvailableProducts = () => products.filter(p => p.status === 'available');
-export const getSoldProducts = () => products.filter(p => p.status === 'sold');
+// Function to get all available products
+export const getAvailableProducts = (): Product[] =>
+  products.filter((product) => product.status === 'available');
+
+// Function to get all sold products with formatted soldDate
+export const getSoldProducts = (): (Product & { formattedSoldDate?: string })[] => {
+  return products
+    .filter((product) => product.status === 'sold')
+    .map((product) => ({
+      ...product,
+      formattedSoldDate: formatDate(product.soldDate),
+    }));
+};

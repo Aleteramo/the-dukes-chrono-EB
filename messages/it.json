@@ -4,56 +4,53 @@
     "subtitle": "Collezione esclusiva di orologi vintage di prestigio"
   },
   "Navigation": {
-    "home": "Home",
-    "catalog": "Catalogo",
+    "archive": "Archivio",
     "about": "Chi Siamo",
-    "contact": "Contatti",
-    "services": "Servizi"
+    "contact": "Contatti"
   },
   "Footer": {
     "contact": "Contattaci",
     "quickLinks": "Link Rapidi",
-    "about": "Chi Siamo",
-    "services": "Servizi",
+    "links": {
+      "archive": "Archivio",
+      "about": "Chi Siamo",
+      "contact": "Contatti"
+    },
     "privacy": "Privacy",
     "followUs": "Seguici",
     "copyright": " 2023 The Duke's Chrono. Tutti i diritti riservati."
   },
-  "Collection": {
-    "title": "Catalogo",
-    "description": "Scopri la nostra selezione di orologi vintage di prestigio, ognuno con la sua storia unica.",
-    "viewAll": "Vedi tutti"
-  },
   "SoldPieces": {
-    "title": "Orologi Venduti di Recente",
-    "description": "Una selezione dei nostri orologi venduti di recente, che rappresentano la qualità e la rarità eccezionale che offriamo.",
-    "soldOn": "Venduto il"
-  },
+  "title": "Hall of Fame",
+  "description": "Ogni orologio in questo archivio rappresenta l'eccellenza dell'orologeria vintage e la nostra dedizione nel preservare questi tesori senza tempo.",
+  "soldOn": "Entrato nella storia il",
+  "noItemsFound": "L'archivio si sta arricchendo"
+},
   "About": {
-    "title": "La Nostra Storia",
-    "heritage": {
-      "title": "Il Nostro Heritage",
-      "description": "Dal 1985, The Duke's Chrono rappresenta l'eccellenza nel mondo degli orologi vintage di prestigio. La nostra passione per la precisione e l'autenticità ci ha reso un punto di riferimento per i collezionisti più esigenti."
-    },
-    "expertise": {
-      "title": "La Nostra Expertise",
-      "description": "Ogni orologio nella nostra collezione viene selezionato personalmente e sottoposto a un rigoroso processo di autenticazione. La nostra esperienza garantisce solo pezzi di straordinaria qualità e provenienza certificata."
-    },
-    "values": {
-      "1": {
-        "title": "Autenticità",
-        "description": "Garantiamo l'originalità e la provenienza di ogni pezzo nella nostra collezione."
-      },
-      "2": {
-        "title": "Eccellenza",
-        "description": "Selezioniamo solo gli orologi più prestigiosi e meglio conservati."
-      },
-      "3": {
-        "title": "Fiducia",
-        "description": "Costruiamo relazioni durature basate sulla trasparenza e professionalità."
-      }
-    }
+  "title": "La Nostra Heritage",
+  "heritage": {
+    "title": "Una Storia di Passione",
+    "description": "The Duke's Chrono nasce nel cuore di Milano dalla passione di collezionisti per collezionisti. Dal 1985, selezioniamo i più rari e prestigiosi segnatempo vintage, diventando un punto di riferimento per gli amanti dell'alta orologeria che cercano l'eccezionale."
   },
+  "expertise": {
+    "title": "Maestria e Dedizione",
+    "description": "La nostra expertise si traduce in una ricerca meticolosa dell'eccellenza. Ogni orologio che entra nella nostra collezione racconta una storia di perfezione tecnica e bellezza senza tempo, certificata attraverso un rigoroso processo di autenticazione."
+  },
+  "values": {
+    "1": {
+      "title": "Eccellenza Senza Compromessi",
+      "description": "Selezioniamo esclusivamente esemplari che rappresentano il vertice dell'orologeria vintage, preservando il patrimonio dei più grandi maestri orologiai."
+    },
+    "2": {
+      "title": "Autenticità Garantita",
+      "description": "Ogni segnatempo viene sottoposto a un meticoloso processo di verifica che ne certifica l'originalità e ne documenta la provenienza."
+    },
+    "3": {
+      "title": "Relazioni di Valore",
+      "description": "Costruiamo legami duraturi con i nostri clienti, condividendo la passione per l'eccellenza e accompagnandoli nella creazione di collezioni uniche."
+    }
+  }
+},
   "Services": {
     "title": "I Nostri Servizi",
     "subtitle": "Servizi esclusivi per il vostro orologio di prestigio",
@@ -87,8 +84,7 @@
   },
   "NotFound": {
     "title": "Pagina Non Trovata",
-    "description": "La pagina che stai cercando non esiste o è stata spostata.",
-    "action": "Torna alla Home",
+    "description": "La pagina che stai cercando non esiste.",
     "backHome": "Torna alla Home"
   },
   "Contact": {
@@ -120,6 +116,35 @@
       "title": "Messaggio Inviato",
       "message": "Grazie per averci contattato. Ti risponderemo al più presto.",
       "close": "Chiudi"
+    }
+  },
+  "Products": {
+    "watches": {
+      "1": {
+        "name": "Rolex Daytona",
+        "description": "Cronografo automatico in acciaio, quadrante nero con contatori argento",
+        "price": "Su richiesta"
+      },
+      "2": {
+        "name": "Patek Philippe Calatrava",
+        "description": "Cassa in oro rosa, quadrante opalino, movimento automatico",
+        "price": "Su richiesta"
+      },
+      "3": {
+        "name": "Audemars Piguet Royal Oak",
+        "description": "Cassa e bracciale in acciaio, quadrante blu \"Grande Tapisserie\"",
+        "price": "Su richiesta"
+      },
+      "4": {
+        "name": "Cartier Santos",
+        "description": "Cassa in acciaio e oro giallo, quadrante bianco, movimento automatico",
+        "price": "Venduto"
+      },
+      "5": {
+        "name": "Vacheron Constantin Overseas",
+        "description": "Cronografo in acciaio, quadrante blu, bracciale integrato",
+        "price": "Venduto"
+      }
     }
   }
 }

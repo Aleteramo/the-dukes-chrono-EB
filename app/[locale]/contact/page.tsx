@@ -82,42 +82,6 @@ export default function Contact() {
                 </button>
               </form>
             </motion.div>
-
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-8"
-            >
-              <div>
-                <h3 className="text-xl font-semibold text-gold mb-4">
-                  {t('info.location.title')}
-                </h3>
-                <p className="text-gold/80">
-                  Via Roma 123<br />
-                  Milano, Italy
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gold mb-4">
-                  {t('info.contact.title')}
-                </h3>
-                <p className="text-gold/80">
-                  Email: info@dukeschrono.com<br />
-                  Tel: +39 123 456 789
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gold mb-4">
-                  {t('info.hours.title')}
-                </h3>
-                <p className="text-gold/80">
-                  {t('info.hours.weekdays')}<br />
-                  {t('info.hours.weekend')}
-                </p>
-              </div>
-            </motion.div>
           </div>
         </div>
       </div>

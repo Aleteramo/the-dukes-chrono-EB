@@ -11,13 +11,7 @@ export const defaultLocale: Locale = 'en';
 
 // Define pathname patterns for internationalized routes
 export const pathnames = {
-  '/': '/',
-  '/catalogo': {
-    it: '/catalogo',
-    en: '/catalog',
-    fr: '/catalogue',
-    es: '/catalogo'
-  }
+  '/': '/archive'
 } satisfies Pathnames<typeof locales>;
 
 export const localePrefix = 'always';

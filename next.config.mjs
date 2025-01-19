@@ -1,12 +1,13 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 
-const withNextIntl = createNextIntlPlugin();
-
-/** @type {import('next').NextConfig} */
-const config = {
+export default createNextIntlPlugin({
+  locales: ['en', 'it'],
+  defaultLocale: 'en'
+})({
   output: 'standalone',
   distDir: '.next',
   cleanDistDir: true,
+  
   images: {
     remotePatterns: [
       {
@@ -16,15 +17,19 @@ const config = {
       {
         protocol: 'https',
         hostname: '**.placeholder.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.example.com',
       }
     ],
   },
+  
   experimental: {
-    serverActions: {
-      enabled: true
-    },
+    serverActions: { enabled: true },
     optimizePackageImports: ['@heroicons/react']
   },
+  
   async rewrites() {
     return {
       beforeFiles: [
@@ -33,20 +38,28 @@ const config = {
           destination: '/api/microfrontend-routing'
         }
       ]
-    }
+    };
   },
+  
   typescript: {
     ignoreBuildErrors: true
   },
+  
   eslint: {
     ignoreDuringBuilds: true
   },
+  
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-    }
+    };
     return config;
   },
-};
-
-export default withNextIntl(config);
+  
+  // Remove the logging configuration as it's not a standard Next.js option
+  env: {
+    NEXT_INTL_TRAILING_SLASH: 'always',
+    // Explicitly set the Next.js environment
+    NEXT_PUBLIC_ENV: process.env.NODE_ENV
+  }
+});

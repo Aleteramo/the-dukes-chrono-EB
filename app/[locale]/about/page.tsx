@@ -1,88 +1,138 @@
 "use client";
+
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useState } from 'react';
+import Image from 'next/image';
 
 export default function About() {
   const t = useTranslations('About');
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
 
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  const updateCardStyle = (event: React.PointerEvent<HTMLDivElement>, element: HTMLDivElement) => {
+    const rect = element.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
+
+    element.style.transform = `
+      perspective(1000px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      scale3d(1.02, 1.02, 1.02)
+    `;
+  };
+
+  const resetCardStyle = (element: HTMLDivElement) => {
+    element.style.transform = `
+      perspective(1000px)
+      rotateX(0deg)
+      rotateY(0deg)
+      scale3d(1, 1, 1)
+    `;
   };
 
   return (
-    <main className="min-h-screen bg-black">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gold/20 to-black" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl font-bold text-gold text-center"
-          >
-            {t('title')}
-          </motion.h1>
+    <main ref={containerRef} className="min-h-screen bg-black overflow-hidden">
+      {/* Hero Section Parallax */}
+      <motion.section style={{ y }} className="relative h-[60vh] flex items-center justify-center">
+        <motion.div 
+          style={{ opacity }}
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/20 via-black/50 to-black/95"
+        />
+        <div className="absolute inset-0 mix-blend-overlay opacity-30">
+          <Image
+            src="/images/texture-pattern.png"
+            alt="Texture"
+            fill
+            className="object-cover"
+          />
         </div>
-      </section>
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="text-6xl md:text-7xl font-bold text-gold text-center px-4 relative"
+        >
+          {t('title')}
+        </motion.h1>
+      </motion.section>
 
-      {/* Content Sections */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto space-y-16">
-            {/* Heritage Section */}
+      {/* Content Grid */}
+      <section className="container mx-auto px-4 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          {['heritage', 'expertise'].map((section, index) => (
             <motion.div
-              initial="hidden"
-              whileInView="visible"
+              key={section}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              variants={fadeIn}
-              className="text-center"
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="group relative"
             >
-              <h2 className="text-3xl font-semibold text-gold mb-6">{t('heritage.title')}</h2>
-              <p className="text-gold/80 leading-relaxed">
-                {t('heritage.description')}
-              </p>
+              <div
+                className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent rounded-xl opacity-0 
+                         group-hover:opacity-100 transition-opacity duration-500"
+              />
+              <div
+                className="relative bg-white/5 backdrop-blur-[2px] rounded-xl p-8 border border-gold/10
+                         transition-all duration-300 ease-out"
+                onPointerMove={(e) => e.currentTarget && updateCardStyle(e, e.currentTarget)}
+                onPointerLeave={(e) => e.currentTarget && resetCardStyle(e.currentTarget)}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 
+                             group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+                <h2 className="text-3xl font-bold text-gold mb-6">
+                  {t(`${section}.title`)}
+                </h2>
+                <p className="text-gold/80 leading-relaxed">
+                  {t(`${section}.description`)}
+                </p>
+              </div>
             </motion.div>
+          ))}
 
-            {/* Expertise Section */}
+          {/* Values Cards with Enhanced Effects */}
+          {[1, 2, 3].map((value, index) => (
             <motion.div
-              initial="hidden"
-              whileInView="visible"
+              key={value}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              variants={fadeIn}
-              className="text-center"
+              transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
+              className="group relative md:col-span-2 lg:col-span-1"
             >
-              <h2 className="text-3xl font-semibold text-gold mb-6">{t('expertise.title')}</h2>
-              <p className="text-gold/80 leading-relaxed">
-                {t('expertise.description')}
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent rounded-xl opacity-0 
+                           group-hover:opacity-100 transition-opacity duration-500" />
+              <div
+                className="relative bg-white/5 backdrop-blur-[2px] rounded-xl p-8 border border-gold/10
+                         transition-all duration-300 ease-out"
+                onPointerMove={(e) => e.currentTarget && updateCardStyle(e, e.currentTarget)}
+                onPointerLeave={(e) => e.currentTarget && resetCardStyle(e.currentTarget)}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 
+                             group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+                <h3 className="text-2xl font-bold text-gold mb-4">
+                  {t(`values.${value}.title`)}
+                </h3>
+                <p className="text-gold/80 leading-relaxed">
+                  {t(`values.${value}.description`)}
+                </p>
+              </div>
             </motion.div>
-
-            {/* Values Grid */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
-            >
-              {[1, 2, 3].map((index) => (
-                <div key={index} className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-lg">
-                  <h3 className="text-xl font-semibold text-gold mb-4">
-                    {t(`values.${index}.title`)}
-                  </h3>
-                  <p className="text-gold/70">
-                    {t(`values.${index}.description`)}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
+          ))}
         </div>
       </section>
     </main>

@@ -1,56 +1,47 @@
 export interface Product {
   id: string;
-  name: string;
-  description: string;
-  price: string;
+  translationKey: string;
   image: string;
-  sold?: boolean;
+  status?: 'available' | 'sold';
   soldDate?: string;
 }
 
 export const products: Product[] = [
   {
     id: '1',
-    name: 'Rolex Daytona',
-    description: 'Cronografo automatico in acciaio, quadrante nero con contatori argento',
-    price: 'Su richiesta',
+    translationKey: '1', // corresponds to Products.watches.1
     image: '/images/watches/eduorologi1.svg',
+    status: 'available'
   },
   {
     id: '2',
-    name: 'Patek Philippe Calatrava',
-    description: 'Cassa in oro rosa, quadrante opalino, movimento automatico',
-    price: 'Su richiesta',
+    translationKey: '2', // corresponds to Products.watches.2
     image: '/images/watches/eduorologi1.svg',
+    status: 'available'
   },
   {
     id: '3',
-    name: 'Audemars Piguet Royal Oak',
-    description: 'Cassa e bracciale in acciaio, quadrante blu "Grande Tapisserie"',
-    price: 'Su richiesta',
+    translationKey: '3', // corresponds to Products.watches.3
     image: '/images/watches/eduorologi1.svg',
-  },
+    status: 'available'
+  }
 ];
 
 export const soldProducts: Product[] = [
   {
     id: '4',
-    name: 'Cartier Santos',
-    description: 'Cassa in acciaio e oro giallo, quadrante bianco, movimento automatico',
-    price: 'Venduto',
+    translationKey: '4', // corresponds to Products.watches.4
     image: '/images/watches/eduorologi1.svg',
-    sold: true,
-    soldDate: '2023-12-15',
+    status: 'sold',
+    soldDate: '2023-12-15'
   },
   {
     id: '5',
-    name: 'Vacheron Constantin Overseas',
-    description: 'Cronografo in acciaio, quadrante blu, bracciale integrato',
-    price: 'Venduto',
+    translationKey: '5', // corresponds to Products.watches.5
     image: '/images/watches/eduorologi1.svg',
-    sold: true,
-    soldDate: '2023-11-30',
-  },
+    status: 'sold',
+    soldDate: '2023-11-30'
+  }
 ];
 
 export function getAvailableProducts(): Product[] {

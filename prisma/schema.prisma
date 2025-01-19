@@ -118,3 +118,26 @@ enum InquiryStatus {
   RESPONDED
   CLOSED
 }
+// Add this to your existing schema.prisma, after the existing enums
+
+enum UserRole {
+  ADMIN
+  USER
+  MODERATOR
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  username  String?   @unique
+  name      String?
+  password  String
+  role      UserRole  @default(USER)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Optional: Add relations if needed
+  // watches   Watch[]
+}
+
