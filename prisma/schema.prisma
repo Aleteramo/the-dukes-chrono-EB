@@ -1,0 +1,143 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Watch {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Info Base
+  brand       String   @db.VarChar(100)
+  model       String   @db.VarChar(100)
+  reference   String?  @db.VarChar(50)
+  year        Int?
+  serialNumber String? @db.VarChar(50)
+  
+  // Dettagli Tecnici
+  movement    String   @db.VarChar(50)
+  caliber     String?  @db.VarChar(50)
+  diameter    Int?
+  material    String?  @db.VarChar(50)
+  caseMaterial String? @db.VarChar(50)
+  braceletMaterial String? @db.VarChar(50)
+  glassType   String?  @db.VarChar(50)
+  waterResistance String? @db.VarChar(50)
+  
+  // Condizioni e Autenticità
+  condition   WatchCondition
+  box         Boolean  @default(false)
+  papers      Boolean  @default(false)
+  serviceHistory Boolean @default(false)
+  lastService DateTime?
+  
+  // Media
+  images      Image[]
+  videos      Json?    // Stored as JSON array
+  
+  // Descrizione e Dettagli
+  description String   @db.Text
+  features    Json?    // Stored as JSON array
+  rarity      String?  @db.VarChar(100)
+  
+  // Prezzi e Disponibilità
+  price       Decimal? @db.Decimal(10, 2)
+  isAvailable Boolean  @default(true)
+  soldAt      DateTime?
+  reserved    Boolean  @default(false)
+  
+  // SEO e Metadata
+  slug        String   @unique @db.VarChar(255)
+  metaTitle   String?  @db.VarChar(255)
+  metaDesc    String?  @db.Text
+
+  // Instagram Integration
+  instagramUrl String? @db.VarChar(255)
+  instagramPostId String? @db.VarChar(100)
+  
+  // Relazioni
+  inquiries   Inquiry[]
+  category    Category    @relation(fields: [categoryId], references: [id])
+  categoryId  String
+
+  @@index([brand])
+  @@index([model])
+  @@index([categoryId])
+}
+
+enum WatchCondition {
+  NEW
+  EXCELLENT
+  VERY_GOOD
+  GOOD
+  FAIR
+  FOR_PARTS
+}
+
+model Image {
+  id        String   @id @default(cuid())
+  url       String   @db.VarChar(255)
+  alt       String?  @db.VarChar(255)
+  order     Int      @default(0)
+  isPrimary Boolean  @default(false)
+  watch     Watch    @relation(fields: [watchId], references: [id])
+  watchId   String
+
+  @@index([watchId])
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @db.VarChar(100)
+  slug        String   @unique @db.VarChar(100)
+  description String?  @db.Text
+  watches     Watch[]
+}
+
+model Inquiry {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  name      String   @db.VarChar(100)
+  email     String   @db.VarChar(255)
+  message   String   @db.Text
+  phone     String?  @db.VarChar(20)
+  status    InquiryStatus @default(PENDING)
+  watch     Watch    @relation(fields: [watchId], references: [id])
+  watchId   String
+
+  @@index([watchId])
+}
+
+enum InquiryStatus {
+  PENDING
+  RESPONDED
+  CLOSED
+}
+// Add this to your existing schema.prisma, after the existing enums
+
+enum UserRole {
+  ADMIN
+  USER
+  MODERATOR
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  username  String?   @unique
+  name      String?
+  password  String
+  role      UserRole  @default(USER)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Optional: Add relations if needed
+  // watches   Watch[]
+}
+

@@ -1,0 +1,28 @@
+{
+  "Metadata": {
+    "title": "The Dukes Chrono - Montres Vintage de Luxe",
+    "description": "Collection exclusive de montres vintage prestigieuses",
+    "keywords": "montres vintage, montres de luxe, collection de montres"
+  },
+  "HomePage": {
+    "title": "The Dukes Chrono",
+    "subtitle": "Collection exclusive de montres vintage prestigieuses"
+  },
+  "Navigation": {
+    "home": "Accueil",
+    "catalog": "Catalogue",
+    "about": "À Propos",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "ContactCTA": {
+    "title": "Découvrez Notre Collection",
+    "description": "Chaque montre raconte une histoire unique. Laissez-vous inspirer par notre sélection de montres vintage.",
+    "cta": "Contactez-nous"
+  },
+  "ProductDetail": {
+    "details": "Détails",
+    "specifications": "Spécifications", 
+    "description": "Description"
+  }
+}

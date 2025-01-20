@@ -1,0 +1,28 @@
+{
+  "Metadata": {
+    "title": "The Dukes Chrono - Relojes Vintage de Lujo",
+    "description": "Colección exclusiva de relojes vintage prestigiosos",
+    "keywords": "relojes vintage, relojes de lujo, colección de relojes"
+  },
+  "HomePage": {
+    "title": "The Dukes Chrono",
+    "subtitle": "Colección exclusiva de relojes vintage prestigiosos"
+  },
+  "Navigation": {
+    "home": "Inicio",
+    "catalog": "Catálogo",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "ContactCTA": {
+    "title": "Descubre Nuestra Colección",
+    "description": "Cada reloj cuenta una historia única. Déjate inspirar por nuestra selección de relojes vintage.",
+    "cta": "Contáctanos"
+  },
+  "ProductDetail": {
+    "details": "Detalles",
+    "specifications": "Especificaciones", 
+    "description": "Descripción"
+  }
+}

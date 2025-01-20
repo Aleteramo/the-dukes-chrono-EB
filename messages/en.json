@@ -1,0 +1,130 @@
+{
+  "HomePage": {
+    "title": "The Duke's Chrono",
+    "subtitle": "Exclusive collection of prestigious vintage watches"
+  },
+  "Navigation": {
+    "archive": "Archive",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "Products": {
+    "sold": "Sold",
+    "available": "Available",
+    "watches": {
+      "1": {
+        "name": "Rolex Daytona",
+        "description": "Automatic chronograph in steel, black dial with silver counters",
+        "price": "On request"
+      },
+      "2": {
+        "name": "Patek Philippe Calatrava",
+        "description": "Rose gold case, opaline dial, automatic movement",
+        "price": "On request"
+      },
+      "3": {
+        "name": "Audemars Piguet Royal Oak",
+        "description": "Steel case and bracelet, blue \"Grande Tapisserie\" dial",
+        "price": "On request"
+      },
+      "4": {
+        "name": "Cartier Santos",
+        "description": "Steel and yellow gold case, white dial, automatic movement",
+        "price": "Sold"
+      },
+      "5": {
+        "name": "Vacheron Constantin Overseas",
+        "description": "Steel chronograph, blue dial, integrated bracelet",
+        "price": "Sold"
+      }
+    }
+  },
+  "Footer": {
+    "contact": "Contact Us",
+    "quickLinks": "Quick Links",
+    "about": "About",
+    "services": "Services",
+    "privacy": "Privacy",
+    "followUs": "Follow Us",
+    "copyright": " 2023 The Duke's Chrono. All rights reserved."
+  },
+  "Collection": {
+    "title": "Available Watches",
+    "description": "Explore our current collection of exceptional timepieces available for purchase."
+  },
+  "SoldPieces": {
+    "title": "Hall of Fame",
+    "description": "Each timepiece in this archive represents the pinnacle of vintage watchmaking and our dedication to preserving these timeless treasures.",
+    "soldOn": "Entered history on",
+    "noItemsFound": "Our archive is growing"
+  },
+  "About": {
+    "title": "Our Story",
+    "heritage": {
+      "title": "Our Heritage",
+      "description": "Since 1985, The Duke's Chrono has represented excellence in the world of prestigious vintage watches. Our passion for precision and authenticity has made us a reference point for the most discerning collectors."
+    },
+    "expertise": {
+      "title": "Our Expertise",
+      "description": "Every watch in our collection is personally selected and undergoes a rigorous authentication process. Our expertise ensures only pieces of extraordinary quality and certified provenance."
+    },
+    "values": {
+      "1": {
+        "title": "Authenticity",
+        "description": "We guarantee the originality and provenance of every piece in our collection."
+      },
+      "2": {
+        "title": "Excellence",
+        "description": "We select only the most prestigious and best-preserved timepieces."
+      },
+      "3": {
+        "title": "Trust",
+        "description": "We build lasting relationships based on transparency and professionalism."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "subtitle": "We're here to answer all your questions",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "message": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "submit": "Send Message"
+    },
+    "info": {
+      "location": {
+        "title": "Location"
+      },
+      "contact": {
+        "title": "Contact"
+      },
+      "hours": {
+        "title": "Opening Hours",
+        "weekdays": "Mon - Fri: 10:00 AM - 7:00 PM",
+        "weekend": "Sat: 10:00 AM - 5:00 PM"
+      }
+    },
+    "success": {
+      "title": "Message Sent",
+      "message": "Thank you for contacting us. We'll get back to you soon.",
+      "close": "Close"
+    }
+  },
+  "ProductCard": {
+    "imageNotAvailable": "Image not available",
+    "nameNotAvailable": "Name not available",
+    "priceNotAvailable": "Price not available",
+    "noDescription": "No description provided.",
+    "sold": "Sold",
+    "available": "Available"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist.",
+    "backHome": "Back to Home"
+  }
+}

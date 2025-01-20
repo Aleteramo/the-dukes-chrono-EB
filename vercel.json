@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "rewrites": [
+    { "source": "/:locale(it|en|fr|es)/:path*", "destination": "/:locale/:path*" }
+  ]
+}
